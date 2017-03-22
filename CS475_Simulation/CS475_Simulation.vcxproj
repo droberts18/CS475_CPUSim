@@ -150,6 +150,9 @@
     <ClInclude Include="CPU.h" />
     <ClInclude Include="Process.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DataFile.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

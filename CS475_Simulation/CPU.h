@@ -21,7 +21,8 @@ public:
 	}
 
 	void checkForIncomingProcesses(vector<Process*> processes, int clock);
-	void run(vector<Process*> processes);
+	void runFCFS(vector<Process*> processes);
+	void runRR(vector<Process*> processes, int quantum);
 };
 
 #endif
