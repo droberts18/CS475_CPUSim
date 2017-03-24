@@ -11,32 +11,31 @@ int Process::PIDcounter = 1;
 
 int main() {
 	vector<Process*> incomingProcesses;
-	// TO DO: add incoming random processes to vector
 	ifstream file("DataFile.csv");
 	string line;
 	string arrivalTime;
-	string CPUBurstTime;
-	string IOBurstTime;
+	string CPUBurstTime1;
+	string CPUBurstTime2;
+	string IOBurstTime1;
+	string IOBurstTime2;
 	int i = 1;
 
-	//while (getline(file, line)) {
-	//	if (i > 1) {
-	//		getline(getline(sst, , ','), lastname, ',');
-	//	}
-	//}
-
-	for (int i = 0; i < 1000; i++) {
-		incomingProcesses.push_back(new Process(0, 1, 0));
+	while (getline(file, arrivalTime, ',')) {
+		getline(file, CPUBurstTime1, ',');
+		getline(file, IOBurstTime1, ',');
+		getline(file, CPUBurstTime2, ',');
+		getline(file, IOBurstTime2);
+		Process *processPoint = new Process(stoi(arrivalTime), stoi(CPUBurstTime1), stoi(CPUBurstTime2), stoi(IOBurstTime1), stoi(IOBurstTime2));
+		incomingProcesses.push_back(processPoint);
+		processPoint = NULL;
 	}
-	CPU c = CPU();
-	//c.runFCFS(incomingProcesses);
 
-	int quantum;
-	do {
-		cout << "Please enter the desired quantum for RR: ";
-		cin >> quantum;
-	} while (quantum <= 0);
-	//c.runRR(incomingProcesses, quantum);
+	CPU c = CPU();
+//	c.runFCFS(incomingProcesses);
+
+	// Preset quantum of 5 ms for round robin
+	int quantum = 5;
+	c.runRR(incomingProcesses, quantum);
 
 	return 0;
 }
