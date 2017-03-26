@@ -31,11 +31,13 @@ int main() {
 	}
 
 	CPU c = CPU();
-//	c.runFCFS(incomingProcesses);
 
+	//c.runFCFS(incomingProcesses);
 	// Preset quantum of 5 ms for round robin
 	int quantum = 5;
-	c.runRR(incomingProcesses, quantum);
+	//c.runRR(incomingProcesses, quantum);
+
+	c.runMultiFCFS(incomingProcesses);
 
 	return 0;
 }

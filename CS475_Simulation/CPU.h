@@ -23,6 +23,7 @@ public:
 	void checkForIncomingProcesses(vector<Process*> processes, int clock);
 	void runFCFS(vector<Process*> processes);
 	void runRR(vector<Process*> processes, int quantum);
+	void runMultiFCFS(vector<Process*> processes);
 	void computeStats(int clock);
 };
 
